@@ -27,6 +27,21 @@ Header
         <li class="active"><a href="#intro">Home</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#services">Services</a></li>
+
+        <% if user_signed_in? %>
+            <li>
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+            </li>
+        <% else %>
+            <li>
+                <%= link_to 'Sign In', new_user_session_path %>
+            </li>
+            <li>
+                <%= link_to 'Sign In', new_user_registration_session_path %>
+            </li>
+        <% end %>
+
+
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#team">Team</a></li>
         <li class="drop-down"><a href="">Drop Down</a>
